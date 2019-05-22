@@ -129,20 +129,16 @@ public class JobData {
 
     public static ArrayList<HashMap<String, String>> findByValue(String keyWord) {
         loadData();
+        String keyWordLower = keyWord.toLowerCase();
 
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
         for (HashMap<String, String> job : allJobs) {
-            boolean isInKeyWord = false;
-            for(Map.Entry<String, String> row:job.entrySet()) {
-                String value = row.getValue();
-                if(value.contains(keyWord)){
-                    isInKeyWord = true;
+            for(Map.Entry<String, String> row : job.entrySet()) {
+                String rowValue = row.getValue();
+                if(rowValue.toLowerCase().contains(keyWordLower)){
+                    jobs.add(job);
                 }
-            }
-
-            if (isInKeyWord) {
-                jobs.add(job);
             }
         }
 
