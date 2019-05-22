@@ -117,9 +117,11 @@ public class TechJobs {
         }
 
         for(HashMap<String, String> jobs:someJobs) {
+            System.out.println("*****");
             for (Map.Entry<String, String> row: jobs.entrySet()) {
                 System.out.println(row.getKey() + ": " + row.getValue());
             }
+            System.out.println("*****\n");
         }
     }
 }
